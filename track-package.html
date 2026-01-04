@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Track Package | Tranzio Services L.L.C</title>
+
+  <!-- Main Site CSS -->
+  <link rel="stylesheet" href="css/base.css">
+
+  <!-- Track Page CSS (NEW) -->
+  <link rel="stylesheet" href="css/track-package.css">
+
+  <link rel="icon" type="image/png" href="/images/favicons/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/images/favicons/favicon.svg" />
+  <link rel="shortcut icon" href="/images/favicons/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon.png" />
+  <link rel="manifest" href="/images/favicons/site.webmanifest" />
+</head>
+
+<body>
+
+<!-- ===== HEADER ===== -->
+<header>
+  <div class="container">
+    <img src="images/tranzio-logo-transparent.png" alt="Tranzio Logo" class="logo">
+
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="services.html">SERVICES</a></li>
+        <li><a href="track-package.html" class="active">TRACK PACKAGE</a></li>
+        <li><a href="tranzio-portal.html">T-PORTAL</a></li>
+        <li><a href="contact.html">CONTACT US</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="tracking-section">
+    <div class="container">
+
+      <h2 class="tracking-title">Track Your Package</h2>
+      <p class="tracking-subtitle">
+        Enter your package ID to see real-time delivery updates.
+      </p>
+
+      <form class="tracking-form" onsubmit="return checkPackage(event)">
+        <input type="text" id="packageId" placeholder="Enter Package ID" required>
+        <button type="submit">Track</button>
+      </form>
+
+      <div class="tracking-result" id="trackingResult"></div>
+
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <p>&copy; 2025 Tranzio Services L.L.C. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- Packages JS -->
+<script src="js/packages.js"></script>
+
+<script>
+  let currentTrackedId = null;
+
+  function checkPackage(event) {
+    if (event) event.preventDefault();
+    currentTrackedId = document.getElementById("packageId").value.trim().toUpperCase();
+    updateTrackingResult();
+  }
+
+  function updateTrackingResult() {
+    const resultDiv = document.getElementById("trackingResult");
+    if (!currentTrackedId) return;
+
+    const pkg = packages[currentTrackedId];
+    if (!pkg) {
+      resultDiv.innerHTML = `<p class="tracking-error">Package ID not found. Please check and try again.</p>`;
+      return;
+    }
+
+    let steps = [
+      { name: "Picked Up", key: "pickedUp" },
+      { name: "En Route", key: "enRoute" },
+      { name: "Delivered", key: "delivered" }
+    ];
+
+    let timelineHTML = '<ul class="status-timeline">';
+    steps.forEach((step, index) => {
+      let isCompleted = steps.findIndex(s => s.name === pkg.status) >= index;
+      let className = isCompleted ? "status-completed" : "";
+      let timeText = pkg.timestamps[step.key] ? `<br><small>${pkg.timestamps[step.key]}</small>` : "";
+      timelineHTML += `<li class="${className}">${step.name}${timeText}</li>`;
+    });
+    timelineHTML += '</ul>';
+
+    let proofHTML = '';
+    if (pkg.proof) {
+      proofHTML = `
+        <div class="proof-box">
+          <p><strong>Proof of Delivery</strong></p>
+          <img src="${pkg.proof}" alt="Proof of Delivery">
+        </div>
+      `;
+    }
+
+    resultDiv.innerHTML = `
+      <div class="package-card">
+        <p><strong>Package ID:</strong> ${currentTrackedId}</p>
+        ${timelineHTML}
+        ${proofHTML}
+      </div>
+    `;
+  }
+
+  setInterval(updateTrackingResult, 3000);
+</script>
+
+</body>
+</html>

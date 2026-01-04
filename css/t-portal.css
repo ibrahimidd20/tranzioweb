@@ -1,0 +1,126 @@
+/* ===== PORTAL SECTION ===== */
+.portal-container {
+  padding: 70px 20px;
+  background: #f5f7fa;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ===== HEADINGS ===== */
+.portal-container h2 {
+  font-size: 2.5rem;
+  color: #ff7f2a; /* lighter orange */
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.portal-container p {
+  font-size: 1.05rem;
+  color: #333;
+  text-align: center;
+  max-width: 700px;
+  margin-bottom: 40px;
+}
+
+/* ===== PORTAL CARDS ===== */
+.portal-cards {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.portal-cards .card {
+  background: #fff;
+  padding: 30px 20px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+  text-align: center;
+  flex: 1 1 250px;
+  max-width: 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portal-cards .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.portal-cards .card i {
+  color: #3f7fff; /* light blue accent */
+  margin-bottom: 15px;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.portal-cards .card:hover i {
+  transform: scale(1.2);
+  color: #ff7f2a; /* orange hover accent */
+}
+
+.portal-cards .card h3 {
+  font-size: 1.35rem;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+.portal-cards .card p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+/* ===== BUTTONS ===== */
+.portal-btn {
+  padding: 12px 28px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg, #ff6a00, #ff9e3f);
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.portal-btn:hover {
+  background: linear-gradient(135deg, #ff8500, #ffb76b);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255,110,0,0.3);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .portal-cards {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .portal-cards {
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+  }
+
+  .portal-container h2 {
+    font-size: 2rem;
+  }
+
+  .portal-container p {
+    font-size: 1rem;
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .portal-cards .card {
+    max-width: 90%;
+    padding: 25px 15px;
+  }
+
+  .portal-btn {
+    width: 100%;
+  }
+}

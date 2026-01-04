@@ -1,0 +1,110 @@
+/* ===== ROOT VARIABLES ===== */
+:root {
+  --orange-primary: #FF9A3C;
+  --orange-soft: #FFD3A3;
+  --blue-accent: #6EC1FF;
+  --blue-deep: #0A2E5C;
+  --bg-light: #F7F9FC;
+  --text-dark: #1F2933;
+}
+
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background: var(--bg-light);
+  color: var(--text-dark);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== CONTAINER ===== */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ===== HEADER ===== */
+header {
+  background: linear-gradient(135deg, #FF9A3C, #6EC1FF);
+  padding: 16px 0;
+}
+
+header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header .logo {
+  height: 75px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  padding: 8px 14px;
+  border-radius: 6px;
+  transition: background 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+  background: rgba(255,255,255,0.25);
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+  background: var(--blue-accent);
+  color: #fff;
+  padding: 12px 26px;
+  border-radius: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-block;
+  transition: transform 0.2s, background 0.3s;
+}
+
+.btn:hover {
+  background: #58b4f2;
+  transform: translateY(-2px);
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--blue-deep);
+  color: #fff;
+  text-align: center;
+  padding: 22px 0;
+  margin-top: auto;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  header .container {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

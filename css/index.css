@@ -1,0 +1,210 @@
+/* =====================================================
+   HERO SLIDER
+   ===================================================== */
+
+.hero-slider {
+  position: relative;
+  height: 520px;
+  overflow: hidden;
+}
+
+.slider-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Slide wrapper */
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+/* Image */
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Dark overlay for readability */
+.slide::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.45),
+    rgba(0, 0, 0, 0.1)
+  );
+}
+
+/* Text box */
+.slide-text {
+  position: absolute;
+  bottom: 60px;
+  left: 60px;
+  z-index: 2;
+
+  background: rgba(255, 106, 0, 0.9);
+  padding: 26px 32px;
+  border-radius: 14px;
+
+  color: #fff;
+  max-width: 420px;
+}
+
+.slide-text h1 {
+  font-size: 2.4rem;
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+.slide-text p {
+  font-size: 1.05rem;
+  line-height: 1.55;
+}
+
+/* Slider controls */
+.slider-controls {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.slider-controls button {
+  pointer-events: all;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  background: rgba(255, 255, 255, 0.8);
+  border: none;
+  border-radius: 50%;
+
+  width: 44px;
+  height: 44px;
+  font-size: 1.4rem;
+  cursor: pointer;
+
+  transition: background 0.3s, transform 0.2s;
+}
+
+.slider-controls button:hover {
+  background: #fff;
+  transform: translateY(-50%) scale(1.08);
+}
+
+.slider-controls .prev {
+  left: 20px;
+}
+
+.slider-controls .next {
+  right: 20px;
+}
+
+/* =====================================================
+   HOME SERVICES
+   ===================================================== */
+
+.services {
+  padding: 90px 0;
+  background: #f5f7fa;
+}
+
+.services h2 {
+  text-align: center;
+  font-size: 2.4rem;
+  margin-bottom: 50px;
+  color: var(--blue-deep);
+}
+
+/* Card layout */
+.service-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(260px, 1fr));
+  gap: 36px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Card */
+.services .card {
+  background: #fff;
+  padding: 38px 30px;
+  border-radius: 18px;
+  text-align: center;
+
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.services .card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+.services .card i {
+  color: var(--orange-primary);
+  margin-bottom: 22px;
+}
+
+.services .card h3 {
+  font-size: 1.35rem;
+  margin-bottom: 12px;
+  color: var(--blue-deep);
+}
+
+.services .card p {
+  font-size: 1rem;
+  line-height: 1.55;
+  color: #555;
+}
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+
+@media (max-width: 900px) {
+  .slide-text {
+    left: 30px;
+    right: 30px;
+    bottom: 40px;
+    max-width: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-slider {
+    height: 420px;
+  }
+
+  .slide-text h1 {
+    font-size: 2rem;
+  }
+
+  .service-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-slider {
+    height: 360px;
+  }
+
+  .slide-text {
+    padding: 20px;
+  }
+
+  .slide-text h1 {
+    font-size: 1.75rem;
+  }
+}

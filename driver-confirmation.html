@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Driver Confirmation | Tranzio Services L.L.C</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/driver-confirmation.css">
+
+
+
+
+  <link rel="icon" type="image/png" href="/images/favicons/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/images/favicons/favicon.svg" />
+  <link rel="shortcut icon" href="/images/favicons/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon.png" />
+  <link rel="manifest" href="/images/favicons/site.webmanifest" />
+
+
+</head>
+<body>
+  <!-- ===== HEADER ===== -->
+<header>
+  <div class="container">
+    <img src="images/tranzio-logo-transparent.png" alt="Tranzio Logo" class="logo">
+
+    <nav>
+      <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="services.html">SERVICES</a></li>
+        <li><a href="track-packages.html">TRACK PACKAGE</a></li>
+        <li><a href="tranzio-portal.html" class="active">T-PORTAL</a></li>
+        <li><a href="contact.html">CONTACT US</a></li>
+    </ul>
+    </nav>
+  </div>
+</header>
+
+  <main>
+    <section class="driver-confirmation" style="padding: 60px 20px; text-align: center;">
+      <div class="container">
+        <h2 style="color: #3f7fff; margin-bottom: 20px;">Driver Confirmation</h2>
+        <p style="margin-bottom: 30px;">Upload proof of delivery for a package:</p>
+        <form id="deliveryForm" onsubmit="return submitDelivery(event)">
+          <input type="text" id="packageId" placeholder="Package ID" required style="padding:10px; border-radius:8px; border:1px solid #ccc; margin-bottom:10px; width:250px;">
+          <br>
+          <input type="file" id="proofImage" accept="image/*" required style="margin-bottom:10px;">
+          <br>
+          <button type="submit" style="padding:10px 20px; border-radius:8px; border:none; background:#ff6a00; color:#fff; cursor:pointer; font-weight:bold;">Submit</button>
+        </form>
+        <div id="preview" style="margin-top:30px;"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Tranzio Services L.L.C. All rights reserved.
+  </footer>
+
+  <script src="js/packages.js"></script>
+<script>
+  function submitDelivery(event) {
+    event.preventDefault();
+    const packageId = document.getElementById('packageId').value.trim().toUpperCase();
+    const proofFile = document.getElementById('proofImage').files[0];
+    const previewDiv = document.getElementById('preview');
+
+    if (!packages[packageId]) {
+      previewDiv.innerHTML = `<p style="color:red;">Package ID not found. Please check and try again.</p>`;
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      packages[packageId].status = "Delivered";
+      packages[packageId].proof = e.target.result;
+
+      previewDiv.innerHTML = `
+        <h3 style="color:#3f7fff;">Delivery Submitted!</h3>
+        <p><strong>Package ID:</strong> ${packageId}</p>
+        <p><strong>Status:</strong> ${packages[packageId].status}</p>
+        <p><strong>Proof Image:</strong></p>
+        <img src="${packages[packageId].proof}" alt="Proof of Delivery" style="max-width:300px; width:100%; border-radius:8px; margin-top:10px;">
+      `;
+    }
+    reader.readAsDataURL(proofFile);
+  }
+</script>
+
+</body>
+</html>

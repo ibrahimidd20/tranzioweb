@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tranzio Portal | Tranzio Services L.L.C</title>
+
+
+  <!-- General CSS -->
+  <link rel="stylesheet" href="css/base.css">
+
+  <link rel="stylesheet" href="css/t-portal.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+  <link rel="icon" type="image/png" href="/images/favicons/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/images/favicons/favicon.svg" />
+  <link rel="shortcut icon" href="/images/favicons/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon.png" />
+  <link rel="manifest" href="/images/favicons/site.webmanifest" />
+
+
+</head>
+
+<body>
+
+<!-- ===== HEADER ===== -->
+<header>
+  <div class="container">
+    <img src="images/tranzio-logo-transparent.png" alt="Tranzio Logo" class="logo">
+
+    <nav>
+      <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="services.html">SERVICES</a></li>
+        <li><a href="track-package.html">TRACK PACKAGE</a></li>
+        <li><a href="tranzio-portal.html" class="active">T-PORTAL</a></li>
+        <li><a href="contact.html">CONTACT US</a></li>
+    </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== MAIN CONTENT ===== -->
+<main>
+  <section class="portal-container">
+
+    <h2 style="text-align:center;color:#3f7fff;margin-bottom:10px;">
+      Tranzio Portal
+    </h2>
+
+    <p style="text-align:center;color:#333;margin-bottom:40px;">
+      Secure access for clients, drivers, and service confirmations
+    </p>
+
+    <!-- PORTAL CARDS -->
+    <div class="portal-cards" style="flex-wrap:nowrap;">
+
+      <!-- Client Login -->
+      <div class="card">
+        <i class="fas fa-user fa-3x"></i>
+        <h3>Client Login</h3>
+        <p>Access delivery history and service updates.</p>
+        <br>
+        <button onclick="window.location.href='client-login.html'" class="portal-btn">
+          Client Dashboard Login
+        </button>
+      </div>
+
+      <!-- Driver Login -->
+      <div class="card">
+        <i class="fas fa-id-badge fa-3x"></i>
+        <h3>Driver Login</h3>
+        <p>Manage assigned deliveries and jobs.</p>
+        <br>
+        <button onclick="window.location.href='driver-login.html'" class="portal-btn">
+          Driver Dashboard Login
+        </button>
+      </div>
+
+      <!-- Service Delivery Confirmation -->
+      <div class="card">
+        <i class="fas fa-clipboard-check fa-3x"></i>
+        <h3>Service Confirmation</h3>
+        <p>Submit proof of completed services.</p>
+        <br>
+        <button onclick="window.location.href='service-confirmation-delivery.html'" class="portal-btn">
+          Confirm Delivery
+        </button>
+        <br><br>
+        <button onclick="window.location.href='service-confirmation-cleaning.html'" class="portal-btn">
+          Confirm Cleaning
+        </button>
+      </div>
+
+      <!-- Join Tranzio -->
+      <div class="card">
+        <i class="fas fa-user-plus fa-3x"></i>
+        <h3>Join Tranzio Services</h3>
+        <p>Apply to work with Tranzio Services.</p>
+        <br>
+        <button onclick="window.location.href='apply-tranzio.html'" class="portal-btn">
+          Apply Now
+        </button>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<!-- ===== FOOTER (UNCHANGED) ===== -->
+<footer>
+  <div class="container">
+    <p>&copy; 2025 Tranzio Services L.L.C. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- ===== SCRIPT ===== 
+<script>
+  function goToLogin(type) {
+    localStorage.setItem("tranzioLoginType", type);
+    window.location.href = "tranzio-portal-login.html";
+  }
+</script>-->
+
+</body>
+</html>

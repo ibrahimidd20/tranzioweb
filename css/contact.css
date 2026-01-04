@@ -1,0 +1,167 @@
+/* ===== CONTACT HERO ===== */
+.contact-hero {
+  background: linear-gradient(
+    rgba(63,127,255,0.9),
+    rgba(63,127,255,0.9)
+  );
+  color: #fff;
+  padding: 70px 0;
+  text-align: center;
+}
+
+.contact-hero h1 {
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+}
+
+.contact-hero p {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* ===== CONTACT SECTION ===== */
+.contact-section {
+  padding: 60px 0;
+}
+
+/* ===== FORM ===== */
+.contact-form {
+  max-width: 700px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 35px;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.form-row {
+  display: flex;
+  gap: 20px;
+}
+
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  transition: border 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #3f7fff;
+}
+
+/* ===== BUTTONS ===== */
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.clear-btn {
+  padding: 12px 22px;
+  background: #ccc;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.clear-btn:hover {
+  background: #b5b5b5;
+}
+
+.submit-btn {
+  padding: 12px 26px;
+  background: #ff6a00;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.submit-btn:hover {
+  background: #ff8500;
+  transform: translateY(-2px);
+}
+
+/* ===== POPUP ===== */
+.popup-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.popup-box {
+  background: #fff;
+  padding: 35px;
+  border-radius: 14px;
+  text-align: center;
+  max-width: 400px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.popup-box i {
+  font-size: 3rem;
+  color: #ff6a00;
+  margin-bottom: 15px;
+}
+
+.popup-box h3 {
+  color: #3f7fff;
+  margin-bottom: 10px;
+}
+
+.popup-box p {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.popup-box button {
+  padding: 10px 25px;
+  background: #3f7fff;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.popup-box button:hover {
+  background: #2f65e0;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .form-row {
+    flex-direction: column;
+  }
+
+  .contact-hero h1 {
+    font-size: 2.2rem;
+  }
+}
